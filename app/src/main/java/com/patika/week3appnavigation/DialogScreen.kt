@@ -13,7 +13,7 @@ class DialogScreen: DialogFragment() {
         return activity?.let {
             val builder = AlertDialog.Builder(it)
             builder.setMessage("This dialog test")
-                .setPositiveButton("OK",{ dialog, id ->
+                .setPositiveButton("OK") { dialog, id ->
                     findNavController().apply {
                         navigate(R.id.action_dialogScreen_to_homeActivity)
                         backQueue.clear()
@@ -26,7 +26,7 @@ class DialogScreen: DialogFragment() {
                     )
                     startActivity(intent)*/
 
-                })
+                }
                 .setNegativeButton("Cancel",{ dialog, id ->
 
                 })
