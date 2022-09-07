@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.patika.week3appnavigation.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_forgetPasswordFragment"
+            app:destination="@id/forgetPasswordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/forgetPasswordFragment"
+        android:name="com.patika.week3appnavigation.ForgetPasswordFragment"
+        android:label="fragment_forget_password"
+        tools:layout="@layout/fragment_forget_password" >
+        <action
+            android:id="@+id/action_forgetPasswordFragment_to_dialogScreen"
+            app:destination="@id/dialogScreen" />
+    </fragment>
+    <dialog
+        android:id="@+id/dialogScreen"
+        android:name="com.patika.week3appnavigation.DialogScreen"
+        android:label="DialogScreen" >
+        <action
+            android:id="@+id/action_dialogScreen_to_homeActivity"
+            app:destination="@id/homeActivity"/>
+    </dialog>
+    <activity
+        android:id="@+id/homeActivity"
+        android:name="com.patika.week3appnavigation.HomeActivity"
+        android:label="activity_home"
+        tools:layout="@layout/activity_home" />
+</navigation>
