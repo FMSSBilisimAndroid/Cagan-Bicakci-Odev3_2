@@ -12,24 +12,20 @@ class DialogScreen: DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
             val builder = AlertDialog.Builder(it)
-            builder.setMessage("This dialog test")
-                .setPositiveButton("OK") { dialog, id ->
+            builder.setMessage("Do you want to reset your password!")
+                .setPositiveButton("OK") { _, _ ->
                     findNavController().apply {
                         navigate(R.id.action_dialogScreen_to_homeActivity)
                         backQueue.clear()
+
                     }
-
-                    /*val intent = Intent(activity,HomeActivity::class.java)
-                    intent.addFlags(
-                        Intent.FLAG_ACTIVITY_CLEAR_TASK  or
-                                Intent.FLAG_ACTIVITY_NEW_TASK
-                    )
-                    startActivity(intent)*/
-
                 }
-                .setNegativeButton("Cancel",{ dialog, id ->
-
-                })
+                .setNegativeButton("Cancel") { _, _ ->
+                    findNavController().apply {
+                        navigate(R.id.loginFragment)
+                        backQueue.clear()
+                    }
+                }
             builder.create()
         }?: throw IllegalStateException("activity can not null")
 

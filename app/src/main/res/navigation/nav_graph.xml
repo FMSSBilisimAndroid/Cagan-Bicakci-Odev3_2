@@ -12,28 +12,34 @@
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_loginFragment_to_forgetPasswordFragment"
-            app:destination="@id/forgetPasswordFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/forgetPasswordFragment"
-        android:name="com.patika.week3appnavigation.ForgetPasswordFragment"
-        android:label="fragment_forget_password"
-        tools:layout="@layout/fragment_forget_password" >
+            app:destination="@id/forgotPasswordGraph" />
         <action
-            android:id="@+id/action_forgetPasswordFragment_to_dialogScreen"
-            app:destination="@id/dialogScreen" />
+            android:id="@+id/action_loginFragment_to_homeActivity"
+            app:destination="@id/homeActivity" />
     </fragment>
-    <dialog
-        android:id="@+id/dialogScreen"
-        android:name="com.patika.week3appnavigation.DialogScreen"
-        android:label="DialogScreen" >
-        <action
-            android:id="@+id/action_dialogScreen_to_homeActivity"
-            app:destination="@id/homeActivity"/>
-    </dialog>
     <activity
         android:id="@+id/homeActivity"
         android:name="com.patika.week3appnavigation.HomeActivity"
         android:label="activity_home"
         tools:layout="@layout/activity_home" />
+    <navigation android:id="@+id/forgotPasswordGraph"
+        app:startDestination="@id/forgetPasswordFragment">
+        <fragment
+            android:id="@+id/forgetPasswordFragment"
+            android:name="com.patika.week3appnavigation.ForgetPasswordFragment"
+            android:label="fragment_forget_password"
+            tools:layout="@layout/fragment_forget_password">
+            <action
+                android:id="@+id/action_forgetPasswordFragment_to_dialogScreen"
+                app:destination="@id/dialogScreen" />
+        </fragment>
+        <dialog
+            android:id="@+id/dialogScreen"
+            android:name="com.patika.week3appnavigation.DialogScreen"
+            android:label="DialogScreen">
+            <action
+                android:id="@+id/action_dialogScreen_to_homeActivity"
+                app:destination="@id/homeActivity" />
+        </dialog>
+    </navigation>
 </navigation>

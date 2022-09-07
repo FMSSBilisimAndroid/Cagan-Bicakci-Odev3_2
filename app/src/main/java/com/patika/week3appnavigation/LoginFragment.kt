@@ -1,5 +1,6 @@
 package com.patika.week3appnavigation
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -17,7 +18,7 @@ class LoginFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         //fragmentLoginBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_login,container,false)
         fragmentLoginBinding = FragmentLoginBinding.inflate(layoutInflater)
@@ -29,6 +30,20 @@ class LoginFragment : Fragment() {
         fragmentLoginBinding.apply {
             btnForgetPassword.setOnClickListener {
                 findNavController().navigate(R.id.action_loginFragment_to_forgetPasswordFragment)
+            }
+
+            btnLogin.setOnClickListener {
+
+                findNavController().apply {
+                    navigate(R.id.action_loginFragment_to_homeActivity)
+                    backQueue.clear()
+                }
+//                val intent = Intent(activity, HomeActivity::class.java)
+//                intent.addFlags(
+//                    Intent.FLAG_ACTIVITY_CLEAR_TASK or
+//                            Intent.FLAG_ACTIVITY_NEW_TASK
+//                )
+//                startActivity(intent)
             }
 
         }
