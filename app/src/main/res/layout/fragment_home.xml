@@ -32,6 +32,12 @@
                 app:lottie_loop="true"
                 app:lottie_rawRes="@raw/welcome_animation" />
 
+            <Button
+                android:id="@+id/btn_logout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/logout" />
+
         </LinearLayout>
 
     </FrameLayout>
