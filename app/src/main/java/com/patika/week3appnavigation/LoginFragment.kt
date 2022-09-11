@@ -9,9 +9,7 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.patika.week3appnavigation.databinding.FragmentLoginBinding
 
-
 class LoginFragment : Fragment() {
-
     private lateinit var fragmentLoginBinding: FragmentLoginBinding
 
     override fun onCreateView(
@@ -24,18 +22,27 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val navController = findNavController()
 
-        fragmentLoginBinding.apply {
+        /**
+         * [findNavController] applied as navController for accessing each elements on ui
+         * action variables created for sending arguments with navigation graph
+         * after navigating to the action back queue cleared to prevent going back from home
+         * also popUpTo and popUpToInclusive tags configured in nav_graph
+         */
 
-            btnForgetPassword.setOnClickListener {
-                val action =
-                    LoginFragmentDirections.actionLoginFragmentToForgetPasswordFragment(etUsername.text.toString())
-                navController.navigate(action)
-            }
+        navController.apply {
+            fragmentLoginBinding.apply {
+                btnForgetPassword.setOnClickListener {
+                    val action =
+                        LoginFragmentDirections.actionLoginFragmentToForgetPasswordFragment(
+                            etUsername.text.toString()
+                        )
+                    navController.navigate(action)
+                }
 
-            btnLogin.setOnClickListener {
-                navController.apply {
+                btnLogin.setOnClickListener {
                     if (etUsername.text.isNullOrBlank()) {
                         Snackbar.make(it, "Please enter an username!", Snackbar.LENGTH_SHORT).show()
                     } else {
@@ -46,8 +53,8 @@ class LoginFragment : Fragment() {
                     }
                 }
             }
+
         }
+
     }
-
-
 }
