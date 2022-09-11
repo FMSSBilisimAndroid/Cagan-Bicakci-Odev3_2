@@ -9,20 +9,18 @@
         android:id="@+id/loginFragment"
         android:name="com.patika.week3appnavigation.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
+        tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_forgetPasswordFragment"
             app:destination="@id/forgotPasswordGraph" />
         <action
-            android:id="@+id/action_loginFragment_to_homeActivity"
-            app:destination="@id/homeActivity" />
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
     </fragment>
-    <activity
-        android:id="@+id/homeActivity"
-        android:name="com.patika.week3appnavigation.HomeActivity"
-        android:label="activity_home"
-        tools:layout="@layout/activity_home" />
-    <navigation android:id="@+id/forgotPasswordGraph"
+    <navigation
+        android:id="@+id/forgotPasswordGraph"
         app:startDestination="@id/forgetPasswordFragment">
         <fragment
             android:id="@+id/forgetPasswordFragment"
@@ -37,9 +35,17 @@
             android:id="@+id/dialogScreen"
             android:name="com.patika.week3appnavigation.DialogScreen"
             android:label="DialogScreen">
-            <action
-                android:id="@+id/action_dialogScreen_to_homeActivity"
-                app:destination="@id/homeActivity" />
+
         </dialog>
+        <action
+            android:id="@+id/action_global_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
     </navigation>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.patika.week3appnavigation.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
 </navigation>
