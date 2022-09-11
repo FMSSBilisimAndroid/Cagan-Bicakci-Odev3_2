@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.get
 import androidx.navigation.fragment.findNavController
 import com.patika.week3appnavigation.databinding.FragmentLoginBinding
 
@@ -32,7 +33,9 @@ class LoginFragment : Fragment() {
             }
 
             btnLogin.setOnClickListener {
-                findNavController().apply {
+                navController.apply {
+                    val username = etUsername.text;
+                    val action = LoginFragmentDirections.actionLoginFragmentToHomeFragment()
                     navigate(R.id.action_loginFragment_to_homeFragment)
                     backQueue.clear()
                 }
