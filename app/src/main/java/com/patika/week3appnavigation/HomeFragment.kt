@@ -1,5 +1,6 @@
 package com.patika.week3appnavigation
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -28,6 +29,16 @@ class HomeFragment : Fragment() {
 
         fragmentHomeBinding.apply {
             tvWelcome.text = getString(R.string.welcome, args.username)
+
+            btnLogout.setOnClickListener{
+
+                val intent = Intent(activity, MemberActivity::class.java)
+                intent.addFlags(
+                    Intent.FLAG_ACTIVITY_CLEAR_TASK or
+                            Intent.FLAG_ACTIVITY_NEW_TASK
+                )
+                startActivity(intent)
+            }
         }
     }
 }
