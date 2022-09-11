@@ -6,7 +6,7 @@ import android.os.Bundle
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
 
-class DialogScreen: DialogFragment() {
+class DialogScreen : DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
@@ -25,7 +25,7 @@ class DialogScreen: DialogFragment() {
                     }
                 }
             builder.create()
-        }?: throw IllegalStateException("activity can not null")
+        } ?: throw IllegalStateException("activity can not null")
 
     }
 
