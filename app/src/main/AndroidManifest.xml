@@ -10,9 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Week3AppNavigation">
         <activity
-            android:name=".HomeActivity"
-            android:exported="false" />
-        <activity
             android:name=".MemberActivity"
             android:exported="true">
             <intent-filter>
