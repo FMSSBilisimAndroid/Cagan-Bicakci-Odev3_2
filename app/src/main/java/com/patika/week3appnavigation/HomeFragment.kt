@@ -36,12 +36,16 @@ class HomeFragment : Fragment() {
             tvWelcome.text = getString(R.string.welcome, args.username)
 
             btnLogout.setOnClickListener {
-                val intent = Intent(activity, MemberActivity::class.java)
-                intent.addFlags(
-                    Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                )
-                startActivity(intent)
+                logout()
             }
         }
+    }
+
+    private fun logout() {
+        val intent = Intent(activity, MemberActivity::class.java)
+        intent.addFlags(
+            Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+        )
+        startActivity(intent)
     }
 }

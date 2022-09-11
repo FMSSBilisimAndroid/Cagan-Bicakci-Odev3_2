@@ -29,7 +29,6 @@ class ForgetPasswordFragment : Fragment() {
         val args: ForgotPasswordGraphArgs by navArgs()
 
         fragmentForgetPasswordBinding.apply {
-
             etUsername.setText(args.username)
 
             //username input passed with arguments to the dialog screen
