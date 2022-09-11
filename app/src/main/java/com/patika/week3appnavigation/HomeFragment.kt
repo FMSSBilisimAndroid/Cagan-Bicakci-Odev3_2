@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.patika.week3appnavigation.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -23,13 +24,10 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val navController = findNavController()
+        val args: HomeFragmentArgs by navArgs()
 
         fragmentHomeBinding.apply {
-            btnLogout.setOnClickListener{
-                navController.apply {
-//                    navigate(R.id.action_homeFragment_to_loginFragment)
-                }
-            }
+            tvWelcome.text = getString(R.string.welcome, args.username)
         }
     }
 }

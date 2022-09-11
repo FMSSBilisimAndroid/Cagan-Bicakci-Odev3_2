@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.patika.week3appnavigation.databinding.FragmentForgetPasswordBinding
 
 
@@ -23,9 +24,16 @@ class ForgetPasswordFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val navController = findNavController()
+        val args: ForgotPasswordGraphArgs by navArgs()
+
         fragmentForgetPasswordBinding.apply {
+            etUsername.setText(args.username)
+
             btnPasswordReset.setOnClickListener {
-                findNavController().navigate(R.id.action_forgetPasswordFragment_to_dialogScreen)
+                val action= ForgetPasswordFragmentDirections.actionForgetPasswordFragmentToDialogScreen(etUsername.text.toString())
+                navController.navigate(action)
             }
         }
     }

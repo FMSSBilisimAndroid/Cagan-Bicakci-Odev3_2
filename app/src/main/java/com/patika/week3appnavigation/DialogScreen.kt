@@ -5,6 +5,7 @@ import android.app.Dialog
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 
 class DialogScreen : DialogFragment() {
 
@@ -14,14 +15,17 @@ class DialogScreen : DialogFragment() {
             builder.setMessage("Do you want to reset your password!")
                 .setPositiveButton("OK") { _, _ ->
 
+                    val args: ForgotPasswordGraphArgs by navArgs()
+
                     findNavController().apply {
-                        navigate(R.id.action_global_homeFragment)
+                        val action = DialogScreenDirections.actionGlobalHomeFragment(args.username)
+                        navigate(action)
                         backQueue.clear()
                     }
                 }
                 .setNegativeButton("Cancel") { _, _ ->
                     findNavController().apply {
-                        navigate(R.id.loginFragment)
+                        navigateUp()
                     }
                 }
             builder.create()
